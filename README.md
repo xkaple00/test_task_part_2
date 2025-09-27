@@ -1,18 +1,18 @@
 ```markdown
 
-# Testing the Gemini Code Review Agent
+#Testing the Gemini Code Review Agent
 
 This guide provides step-by-step instructions on how to set up a local test environment and run the `code_review_agent.py` script to review code changes.
 
 ---
 
-## 1. Environment Setup
+##1. Environment Setup
 
 ### Prerequisites
 - Python 3.10+
 - Git
 
-### Configure Your API Key
+###Configure Your API Key
 The agent requires a **Gemini API key** to function.
 
 1. Obtain your API key from [Google AI Studio](https://aistudio.google.com/).
