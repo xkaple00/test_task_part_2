@@ -1,0 +1,39 @@
+--- Review for calculator.py ---
+Hello, thanks for submitting these changes. I've reviewed the new `subtract` function and have a couple of suggestions to make it more robust and reusable.
+
+### Code Review
+
+Here are my comments on the proposed changes:
+
+#### `calculator.py`
+
+*   **Line 7: `print('The result is ' + result)`**
+    *   **(Bug)** This line will cause a `TypeError` at runtime. In Python, you cannot directly concatenate a string (`'The result is '`) with a number (`result`) using the `+` operator. The number must first be converted to a string.
+    *   **(Best Practice)** The modern and recommended way to format strings in Python is by using f-strings. They are more readable and less error-prone.
+    *   **Suggestion:** Change the line to `print(f'The result is {result}')`.
+
+*   **Line 7: `print(...)`**
+    *   **(Maintainability/Best Practice)** Functions that perform a calculation should ideally have a single responsibility: to compute and return a value. Including a `print` statement inside the function creates a "side effect" that makes it less reusable. For example, another part of the application might want to use the result of `subtract` without printing it to the console.
+    *   **Suggestion:** It would be better to remove the `print` statement from this function. The code that calls `subtract` should be responsible for deciding what to do with the result (e.g., printing it, logging it, or passing it to another function).
+
+*   **Line 5: `# This function subtracts two numbers`**
+    *   **(Readability/Best Practice)** This is a good comment, but for documenting functions, Python's convention is to use a docstring (a string literal as the first statement in the function's body). This allows documentation tools and IDEs to automatically pick it up.
+    *   **Suggestion:** Replace the comment with a docstring inside the function.
+
+### Summary & Example
+
+Overall, the function logic is correct, but the implementation has a bug and could be improved for reusability.
+
+Here is an example incorporating the suggestions above:
+
+```python
+def subtract(x, y):
+    """Subtracts the second number from the first and returns the result."""
+    return x - y
+
+# Example of how a caller would use it:
+# result = subtract(10, 3)
+# print(f'The result is {result}')
+```
+
+These changes will fix the bug and make the function more versatile for future use. Let me know if you have any questions
