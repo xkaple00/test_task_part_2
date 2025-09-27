@@ -1,6 +1,4 @@
-```markdown
-
-** # Testing the Gemini Code Review Agent **
+# Testing the Gemini Code Review Agent
 
 This guide provides step-by-step instructions on how to set up a local test environment and run the `code_review_agent.py` script to review code changes.
 
@@ -79,5 +77,3 @@ A new file named **`review_comments.txt`** will be created in the same directory
 This file will contain the AI's detailed code review.  
 
 ---
-
-```
